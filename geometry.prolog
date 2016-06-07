@@ -44,7 +44,8 @@ horizontal(segment(point(_, X), point(_, Y))) :- X =:= Y.
 arc_between_segments(X, Y, Res) :-
 	segment_lenght(X, Xl),
 	segment_lenght(Y, Yl),
-	arc(angle(_, Xl, Yl), Res).
+	arc(angle(_, Xl, Yl), SubRes),
+	gradient(SubRes, Res).
 
 perpendicular(X, Y) :- 
 	(vertical(Y), horizontal(X)); 
